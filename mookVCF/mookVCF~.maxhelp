@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 177.0, -1011.0, 649.0, 460.0 ],
+		"rect" : [ 437.0, 87.0, 649.0, 460.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -58,8 +58,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 487.5, 226.5, 130.0, 52.0 ],
-					"text" : "It can also be instantiated as follows"
+					"patching_rect" : [ 477.5, 226.5, 150.0, 52.0 ],
+					"text" : "It can also be instantiated with arguments."
 				}
 
 			}
