@@ -12,3 +12,6 @@ From Stilson & Smith [paper](https://ccrma.stanford.edu/~stilti/papers/moogvcf.p
 - Launch Terminal
 - `cd [your path to the SDK]/max-sdk-8.2/source/audio/mookVCF~`
 - `cmake -G Xcode`
+
+### Requirements
+CMake and Xcode must be installed on your computer. 
