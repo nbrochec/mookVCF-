@@ -3,5 +3,12 @@ A digital approximation of the iconic Moog VCF implemented in a Max external obj
 Original code from moc.erehwon@tsaot and musicdsp.org community.  
 From Stilson & Smith [paper](https://ccrma.stanford.edu/~stilti/papers/moogvcf.pdf) (CCRMA). 
 
-## How to install
-Drag and drop `/mookVCF` folder into your Max8 Packages folder.
+## How to install the external
+- Drag and drop `/mookVCF` folder into your Max8 Packages folder.
+
+## Build
+- Drag and drop the build folder content into a new folder `/mookVCF~`.  
+- Drag and drop the newly created folder into your `/max-sdk-8.2/source/audio/` folder.
+- Launch Terminal
+- type 'cd [your path to the SDK]/max-sdk-8.2/source/audio/mookVCF~`
+- type `cmake -G Xcode`
