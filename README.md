@@ -10,5 +10,5 @@ From Stilson & Smith [paper](https://ccrma.stanford.edu/~stilti/papers/moogvcf.p
 - Drag and drop the build folder content into a new folder `/mookVCF~`.  
 - Drag and drop the newly created folder into your `/max-sdk-8.2/source/audio/` folder.
 - Launch Terminal
-- type `cd [your path to the SDK]/max-sdk-8.2/source/audio/mookVCF~`
-- type `cmake -G Xcode`
+- `cd [your path to the SDK]/max-sdk-8.2/source/audio/mookVCF~`
+- `cmake -G Xcode`
