@@ -1,6 +1,6 @@
 # mookVCF~
 A digital approximation of the iconic Moog VCF implemented in a Max external object.  
-Original code from moc.erehwon@tsaot and musicdsp.org community.  
+Original code from moc.erehwon@tsaot and [musicdsp.org](http://musicdsp.org) community.  
 From Stilson & Smith [paper](https://ccrma.stanford.edu/~stilti/papers/moogvcf.pdf) (CCRMA). 
 
 ## How to install the external
