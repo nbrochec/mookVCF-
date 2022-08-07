@@ -6,7 +6,7 @@ From Stilson & Smith [paper](https://ccrma.stanford.edu/~stilti/papers/moogvcf.p
 ## How to install the external
 - Drag and drop `/mookVCF` folder into your Max8 Packages folder.
 
-## Build
+## How to build a new one
 - Drag and drop the build folder content into a new folder `/mookVCF~`.  
 - Drag and drop the newly created folder into your `/max-sdk-8.2/source/audio/` folder.
 - Launch Terminal
