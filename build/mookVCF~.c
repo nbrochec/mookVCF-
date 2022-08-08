@@ -4,6 +4,8 @@
 //
 //  Created by Nicolas Brochec on 25/07/2022.
 //
+//  This is free and unencumbered software released into the public domain.
+//
 
 #include "ext.h"
 #include "ext_obex.h"
