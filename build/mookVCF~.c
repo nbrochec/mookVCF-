@@ -100,20 +100,10 @@ void mookVCF_float(t_mookVCF *x, double f){
     
     if(in==1){
         x->s_freq= f < 1. ? 1 : f;
-        x->s_freq=f;
         object_attr_touch((t_object *)x, gensym("cutoff"));
         mookVCF_calc(x);
     }else if(in==2){
-        if(f >= 1){
-            f = 1.f - 1E-20;
-            x->s_res = f;
-        }else if(f<0.){
-            f = 0.f;
-            x->s_res = f;
-        }else{
-            x->s_res = f;
-        }
-        
+        x->s_res = f >= 1.0 ? 1 - 1E-20 : f;
         object_attr_touch((t_object *)x, gensym("resonance"));
         mookVCF_calc(x);
         }
@@ -130,17 +120,7 @@ t_max_err mookVCF_attr_setcutoff(t_mookVCF *x, void *attr, long argc, t_atom *ar
 t_max_err mookVCF_attr_setresonance(t_mookVCF *x, void *attr, long argc, t_atom *argv){
     double reso = atom_getfloat(argv);
 
-    if(reso >= 1){
-        reso = 1.f - 1E-20;
-//        reso = 0.98;
-        x->s_res = reso;
-    }else if(reso<0.){
-        reso = 0.f;
-        x->s_res = reso;
-    }else{
-        x->s_res = reso;
-    }
-    
+    x->s_res = reso >= 1.0 ? 1 - 1E-20 : reso;
     mookVCF_calc(x);
     return 0;
 }
@@ -150,7 +130,7 @@ void mookVCF_perform64(t_mookVCF *x,t_object *dsp64,double **ins,long numins,dou
     t_double *in1=ins[0];
     t_double *out=outs[0];
     t_double freq = x->s_fcon ? *ins[1] : x->s_freq; // vérifier s'il y a du signal dans les entrées 2 et 3
-    t_double res = x->s_res ? *ins[2] : x->s_res;
+    t_double res = x->s_rcon ? *ins[2] : x->s_res;
     
     double X;
     double y1=x->s_ym1;
@@ -164,10 +144,10 @@ void mookVCF_perform64(t_mookVCF *x,t_object *dsp64,double **ins,long numins,dou
     double t2 = x->s_t2;
     
     // scale resonance
-    if(res >= 1){
-        res = 1.f - 1E-20;
-    }else if(res<0.){
-        res = 0.f;
+    if(res >= 1.0){
+        res = 1.0 - 1E-20;
+    }else if(res < 0.0){
+        res = 0.0;
     }
     
     // do we need to calculate the coefs ?
@@ -255,6 +235,8 @@ void *mookVCF_new(t_symbol *s, long argc, t_atom *argv){
             if ((argv + 1)->a_type == A_FLOAT){
                 object_post((t_object*)x, "arg[%ld] Resonance: %f", 1, atom_getfloat(argv+1));
             }
+        }else{
+            reso = 0;
         }
     }
     
